@@ -5,6 +5,7 @@
  */
 package entity;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -12,7 +13,7 @@ import java.util.Date;
  *
  * @author user
  */
-public class Journal {
+public class Journal implements Serializable{
     private Person student;
     private Subject subject;
     private Integer mark;
