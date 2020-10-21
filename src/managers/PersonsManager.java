@@ -54,6 +54,18 @@ public class PersonsManager {
         int choise = scan.nextInt();
         return persons.get(choise - 1);
     }
+    public Person getStudent(List<Person> persons){
+        System.out.printf("---------StudentsList-------------%n");
+        for (int i = 0; i < persons.size(); i++) {
+            if("student".equals(persons.get(i).getRole())){
+                System.out.printf("%d. %s %s%n", i+1, persons.get(i).getName(), persons.get(i).getSecName());
+            }
+            
+        }
+        System.out.printf("Incert id");
+        int choise = scan.nextInt();
+        return persons.get(choise - 1);
+    }
     
     
 }

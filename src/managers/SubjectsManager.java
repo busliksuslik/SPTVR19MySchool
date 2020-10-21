@@ -42,4 +42,14 @@ public class SubjectsManager {
         }
         scan.nextLine();
     }
+    public Subject getSubject(List<Subject> subjects){
+        System.out.printf("---------StudentsList-------------%n");
+        for (int i = 0; i < subjects.size(); i++) {
+                System.out.printf("%d. %s %s%n", i+1, subjects.get(i).getName(), subjects.get(i).getPerson());
+            }
+        
+        System.out.printf("Incert id");
+        int choise = scan.nextInt();
+        return subjects.get(choise - 1);
+    }
 }

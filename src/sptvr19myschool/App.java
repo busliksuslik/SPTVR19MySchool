@@ -5,12 +5,14 @@
  */
 package sptvr19myschool;
 
+import entity.Journal;
 import tools.savers.SaveToFile;
 import entity.Person;
 import entity.Subject;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import managers.JournalManager;
 import managers.PersonsManager;
 import managers.SubjectsManager;
 
@@ -28,10 +30,16 @@ class App {
     private SubjectsManager subjectManager = new SubjectsManager();
     
     private List<Subject> listSubjects = new ArrayList<>();
+    
+    private JournalManager journalManager = new JournalManager();
+    
+    private List<Journal> listJournals = new ArrayList<>();
 
     public App() {
         SaveToFile saveToFile = new SaveToFile();
         listPersons = saveToFile.loadFromFile("persons");
+        listSubjects = saveToFile.loadFromFile("subjects");
+        listJournals = saveToFile.loadFromFile("journals");
     }
     
     void run() {
@@ -78,11 +86,13 @@ class App {
                     break;
                 }
                 case "7":{
-                    
+                    journalManager.addJournalToList( journalManager.createJournal(listPersons,listSubjects) , listJournals);
+                    SaveToFile saveToFile = new SaveToFile();
+                    saveToFile.saveToFile(listJournals, "journals");
                     break;
                 }
                 case "8":{
-                    
+                    journalManager.printList(listJournals);
                     break;
                 }
                 case "9":{
