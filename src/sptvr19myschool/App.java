@@ -92,7 +92,7 @@ class App {
                     break;
                 }
                 case "8":{
-                    journalManager.printList(listJournals);
+                    journalManager.printList(listJournals, listPersons, listSubjects);
                     break;
                 }
                 case "9":{
